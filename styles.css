@@ -5,6 +5,8 @@
   --muted:#9aa4b2;
   --accent:#60a5fa;
   --text:#e6eef8;
+}
+
 body{
   margin:0;
   font-family: 'Inter', system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
@@ -14,18 +16,43 @@ body{
   -moz-osx-font-smoothing:grayscale;
   line-height:1.6;
 }
+
 .container{max-width:1100px;margin:40px auto;padding:24px;}
+
+/* Header / navigation */
+.site-header{
+  position:sticky;
+  top:0;
+  z-index:1000;
+  background:rgba(6,10,20,0.6);
+  border-bottom:1px solid rgba(255,255,255,0.03);
+  backdrop-filter: blur(6px);
+}
+.header-inner{display:flex;align-items:center;justify-content:space-between;padding:12px 0}
+.brand{font-weight:700}
+.site-nav a{color:var(--muted);margin-left:16px;text-decoration:none}
+.site-nav a:hover{color:var(--accent)}
+
+/* Page layout */
 .home{display:flex;align-items:flex-start;gap:28px}
-.profile-photo{width:10%;height:auto;border-radius:10px;box-shadow:0 8px 24px rgba(2,6,23,.6);}
+
+/* Profile photo: increased from 10% -> 15% (approx +50%) and anchored to the left
+   The markup places the <img> before the main content so it naturally sits top-left */
+.profile-photo{width:15%;height:auto;border-radius:10px;box-shadow:0 8px 24px rgba(2,6,23,.6);flex-shrink:0}
+
 .professional-statement{color:var(--muted);max-width:66ch;margin-top:8px}
 h1{margin:0;font-size:2.25rem;font-weight:700}
 h3{margin:6px 0 10px 0;font-weight:500;color:var(--accent)}
 h2{margin-top:28px;font-size:1.25rem}
 .challenge, .project{background:var(--card);padding:16px;border-radius:10px;margin-bottom:14px;color:var(--text)}
+
 @media (max-width:920px){
   .container{padding:16px}
   .home{flex-direction:column;align-items:center;text-align:center}
   .profile-photo{width:36%}
+  .site-nav{display:none}
 }
-  .profile-photo{width:40%}
-}
+
+/* small utility tweaks */
+a{color:var(--accent)}
+
